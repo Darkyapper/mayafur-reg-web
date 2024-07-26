@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registro de Miembros</title>
+</head>
+<body>
+    <h1>Registro de Miembros</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="document">Documento:</label>
+        <input type="file" id="document" name="document" required><br>
+
+        <label for="terms">Acepto los términos y condiciones</label>
+        <input type="checkbox" id="terms" name="terms" required><br>
+
+        <button type="submit">Registrarse</button>
+    </form>
+    {% if message %}
+    <h2>{{ message }}</h2>
+    {% endif %}
+</body>
+</html>
